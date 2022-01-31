@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap);
+:root {
+  /* Light mode variables */
+  --container-background: #FDF8F7;
+  --para-light-text: #333333;
+  --anchor-light-text: #FAEEEB;
+  --anchor-light-bg: #A04229;
+  /* Dark theme variables */
+  --container-dark-text: #FDF8F7;
+  --container-dark-background: #1C0C07;
+  --para-dark-text: #CCCCCC;
+  --anchor-dark-text: #512115;
+  --anchor-dark-bg: #F5DDD6;
+}
+.dark-mode-checkbox:checked ~ .checkbox-container {
+  /* Toggle the theme */
+  --container-text: var(--container-dark-text);
+  --container-background: var(--container-dark-background);
+  --para-light-text: var(--para-dark-text);
+  --anchor-light-bg: var(--anchor-dark-bg);
+  --anchor-light-text: var(--anchor-dark-text);
+}
+body {
+  font-family: 'Montserrat',sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.5;
+}
+.checkbox-container {
+  padding: 1.5rem;
+  color: var(--container-text);
+  background-color: var(--container-background);
+}
+/*
+* Replace original checkbox
+*/
+.dark-mode-label::before {
+  content: "\2610";
+}
+.dark-mode-checkbox:checked ~ .checkbox-container .dark-mode-label::before {
+  content: "\2611";
+}
+/* To hide the default checkbox */
+.hidden {
+  display: none;
+}
+h1 {
+  margin-top: 2rem;
+}
+.wrapper {
+ max-width: 600px;
+ text-align: left;
+}
+p {
+  margin-bottom: 2.5rem;
+  color: var(--para-light-text);
+}
+a {
+  text-decoration: none;
+  color: var(--anchor-light-text);
+  background: var(--anchor-light-bg);
+  padding: 1rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
